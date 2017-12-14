@@ -10,11 +10,11 @@ public class TemperatureConversion extends JFrame implements ActionListener {
     public TemperatureConversion() {
 	this.setSize(500,500);
 	this.setLocation(100,100);
-	this.defaultCloseOperation(EXIT_ON_CLOSE);
+	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	pane = this.getContentPane();
 	pane.setLayout(new FlowLayout());
-	b1 = new JButton("CtoF");
-	b2 = new JButton("FtoC");
+	b1 = new JButton("FtoC");
+	b2 = new JButton("CtoF");
 	t = new JTextField(12);
 
 	pane.add(b1);
@@ -22,7 +22,10 @@ public class TemperatureConversion extends JFrame implements ActionListener {
 	pane.add(t);
     }
     public void actionPerformed(ActionEvent e) {
-	
+	String s = e.getActionCommand();
+	System.out.println(s);
+	//if(s.equals("FtoC")) {
+	    
     }
     /*
     public static double CtoF(double t) {
@@ -32,4 +35,8 @@ public class TemperatureConversion extends JFrame implements ActionListener {
     return (t - 32) * (5/9);
     }
     */
+    public static void main(String[] args) {
+	TemperatureConversion t = new TemperatureConversion();
+	t.setVisible(true);
+    }
 }
