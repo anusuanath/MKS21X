@@ -4,8 +4,9 @@ import java.awt.event.*;
 
 public class TemperatureConversion extends JFrame implements ActionListener {
     private Container pane;
-    private JButton b1,b2;
+    private JCheckBox c1,c2;
     private JTextField t;
+    private JButton b;
 
     public TemperatureConversion() {
 	this.setSize(500,500);
@@ -13,13 +14,15 @@ public class TemperatureConversion extends JFrame implements ActionListener {
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	pane = this.getContentPane();
 	pane.setLayout(new FlowLayout());
-	b1 = new JButton("FtoC");
-	b2 = new JButton("CtoF");
+	c1 = new JCheckBox("FtoC");
+	c2 = new JCheckBox("CtoF");
 	t = new JTextField(12);
+	b = new JButton("Convert");
 
-	pane.add(b1);
-	pane.add(b2);
+	pane.add(c1);
+	pane.add(c2);
 	pane.add(t);
+	pane.add(b);
     }
     public void actionPerformed(ActionEvent e) {
 	String s = e.getActionCommand();
