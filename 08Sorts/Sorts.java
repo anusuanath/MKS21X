@@ -1,10 +1,9 @@
 import java.util.Arrays;
 
 public class Sorts{
-    /**EDIT THIS METHOD TO MATCH YOUR NAME 
-     */
+    
     public static String name(){
-	return "01.Nath.Anusua"; 
+	return "10.Nath.Anusua"; 
     }
 
     public static boolean isSorted(int[] ary) {
@@ -26,52 +25,75 @@ public class Sorts{
 	    }
 	}
     }
+    
     private static void swap(int[] ary, int a, int b) {
 	int c = ary[a];
 	ary[a] = ary[b];
 	ary[b] = c;
     }
     
-    /**Selection sort of an int array. 
-     *Upon completion, the elements of the array will be in increasing order.
-     *@param data  the elements to be sorted.
-     */
     public static void selectionSort(int[] data){
-	int[] sorted = new int[data.length];
-	while (data.length > 0) {
-	    int lower = data[0];
-	    for (int i = 0; i < data.length; i++) {
-		if (data[i] <= lower) {
-		    lower = data[i];
+	for (int i = 0; i < data.length; i++) {
+	    int lower = data[i];
+	    int index = i;
+	    for (int j = i; j < data.length; j++) {
+		if (data[j] < lower) {
+		    lower = data[j];
+		    index = j;
 		}
 	    }
-	    sorted.add(lower);
-	    data.remove(lower);
+	    data[index] = data[i];
+	    data[i] = lower;	
 	}
     }
 
     public static void insertionSort(int[] data) {
-	int lower = data[0];
-	int higher = data[1];
-	for (int i = 0; i < data.length-1; i++) {
-	    if (data[i] > data[i+1]) {
-		lower = data[i+1];
-		higher = data[i];
-		swap(data,lower,higher);
+ 	for (int i = 1; i < data.length; i++) {
+	    for (int j = i; j < data.length; j++) {
+		if (data[j] < data[j-1]) {
+		    int lower = data[j];
+		    data[j] = data[j-1];
+		    data[j-1] = lower;
+		}
+	    }		
+	}
+    }
+
+    public static void bubbleSort(int[] data) {
+	int countPasses = 0;
+	for (int i = 0; i < data.length && countPasses < data.length; i++) {
+	    for (int j = 1; j < data.length; j++) {
+		if (data[j-1] > data[j]) {
+		    int higher = data[j-1];
+		    data[j-1] = data[j];
+		    data[j] = higher;
+		}
 	    }
-	}		
+	    countPasses++;
+	}
     }
     
-    public static void main(String[] artie) {                           
+    public static void main(String[] args) {
+	int[] randish = new int[5];
         for(int i = 0 ; i < randish.length; i++) {
             randish[i] =(int)(Math.random()*100);  
         }                                            
-        int a = 10, b = 20;  
-        swap(a,b);   
-        System.out.println(a + " " + b );                                 
-        System.out.println(Arrays.toString(randish));
-	//      bogoSort(randish);
-	System.out.println(Arrays.toString(randish));
+                                     
+	// System.out.println(Arrays.toString(randish));
+	//bogoSort(randish);
+	//System.out.println(Arrays.toString(randish));
+       
+	//System.out.println(Arrays.toString(randish));
+	//selectionSort(randish);
+	//System.out.println(Arrays.toString(randish));
+
+	//System.out.println(Arrays.toString(randish));
+	//insertionSort(randish);
+	//System.out.println(Arrays.toString(randish));
+
+	//System.out.println(Arrays.toString(randish));
+	//bubbleSort(randish);
+	//System.out.println(Arrays.toString(randish));
      }
 }
 
